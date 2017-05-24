@@ -19,6 +19,11 @@ class Craft2ymlPlugin extends BasePlugin
 		return '1.0.1';
 	}
 
+	public function getSchemaVersion()
+	{
+		return '1.0.0';
+	}
+
 	function getDeveloper()
 	{
 		return 'Fork Unstable Media GmbH';
