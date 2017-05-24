@@ -1,5 +1,13 @@
 [
   {
+    "version": "1.0.3",
+    "downloadUrl": "https://github.com/fork/craft2yml/archive/1.0.3.zip",
+    "date": "2017-05-24T14:17:53.119Z",
+    "notes": [
+      "[Added] Support neo fields and tags, categories and entries references (currently title and uri attribute)"
+    ]
+  },
+  {
     "version": "1.0.2",
     "downloadUrl": "https://github.com/fork/craft2yml/archive/1.0.2.zip",
     "date": "2017-05-24T13:03:02.530Z",
