@@ -33,7 +33,7 @@ class Craft2ymlService extends BaseApplicationComponent {
 		return Yaml::dump($ymlContent, $inlineLimit, 2);
 	}
 
-	// TODO: handle more field types (category, entry reference, table...)
+	// TODO: handle more field types (date, table...)
 	/**
 	 * @param mixed $element
 	 * @return array
@@ -50,12 +50,20 @@ class Craft2ymlService extends BaseApplicationComponent {
 			if ($field->type == 'Assets') {
 				$asset = $element->getFieldValue($field->handle)->first();
 				$content[$field->handle] = $asset->getUrl();
-			} elseif ($field->type == 'Matrix') {
+			} elseif ($field->type == 'Matrix' || $field->type == 'Neo') {
 				/** @var MatrixBlockModel $matrixBlock */
 				$matrixBlock = $element->getFieldValue($field->handle);
 				/** @var MatrixBlockModel $item */
 				foreach ($matrixBlock->getChildren() as $item) {
-					$content[$field->handle][] = $this->getFieldData($item);
+					$content[$field->handle][] = array_merge(array('type' => $item->getType()->handle), $this->getFieldData($item));
+				}
+			} else if ($field->type == 'Entries' || $field->type == 'Categories' || $field->type == 'Tags') {
+				$entries = $element->getFieldValue($field->handle);
+				foreach ($entries->find() as $entry) {
+					$content[$field->handle][] = array(
+						'title' => $entry->title,
+						'uri' => $entry->uri
+					);
 				}
 			} else {
 				$content[$field->handle] = $element->getContent()->getAttribute($field->handle);
