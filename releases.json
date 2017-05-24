@@ -1,5 +1,15 @@
 [
   {
+    "version": "1.0.2",
+    "downloadUrl": "https://github.com/fork/craft2yml/archive/1.0.2.zip",
+    "date": "2017-05-24T13:03:02.530Z",
+    "notes": [
+      "[Added] Show/download yml directly in browser. Just append '.yml' to the url",
+      "[Added] Settings via config.php file which can be copied to craft/config/craft2yml.php",
+      "[Fixed] Added getSchemaVersion() to plugin file (even if we don't have db migrations, craft checks this...)"
+    ]
+  },
+  {
     "version": "1.0.1",
     "downloadUrl": "https://github.com/fork/craft2yml/archive/1.0.1.zip",
     "date": "2017-05-24T10:37:41.431Z",

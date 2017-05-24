@@ -9,14 +9,14 @@ class Craft2ymlPlugin extends BasePlugin
 		require_once 'vendor/autoload.php';
 	}
 
-	function getName()
+	public function getName()
 	{
 		return 'Craft2yml';
 	}
 
-	function getVersion()
+	public function getVersion()
 	{
-		return '1.0.1';
+		return '1.0.2';
 	}
 
 	public function getSchemaVersion()
@@ -24,12 +24,12 @@ class Craft2ymlPlugin extends BasePlugin
 		return '1.0.0';
 	}
 
-	function getDeveloper()
+	public function getDeveloper()
 	{
 		return 'Fork Unstable Media GmbH';
 	}
 
-	function getDeveloperUrl()
+	public function getDeveloperUrl()
 	{
 		return 'http://fork.de';
 	}
@@ -37,5 +37,14 @@ class Craft2ymlPlugin extends BasePlugin
 	public function getReleaseFeedUrl()
 	{
 		return 'https://raw.githubusercontent.com/fork/craft2yml/master/releases.json';
+	}
+
+	public function registerSiteRoutes()
+	{
+		if (craft()->config->get('useYmlUrlRoute', 'craft2yml')) {
+			return array(
+				'(?P<entryUri>.*)\.yml$' => array('action' => 'craft2yml/showYml'),
+			);
+		}
 	}
 }
