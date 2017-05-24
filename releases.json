@@ -1,0 +1,10 @@
+[
+  {
+    "version": "1.0.1",
+    "downloadUrl": "https://github.com/fork/craft2yml/archive/1.0.1.zip",
+    "date": "2017-05-24T10:37:41.431Z",
+    "notes": [
+      "[Improved] No need for yaml pecl extension anymore, use symfony yaml package instead."
+    ]
+  }
+]

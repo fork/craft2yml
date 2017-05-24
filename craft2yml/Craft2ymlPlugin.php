@@ -3,6 +3,12 @@ namespace Craft;
 
 class Craft2ymlPlugin extends BasePlugin
 {
+	public function init()
+	{
+		// require composer dependencies
+		require_once 'vendor/autoload.php';
+	}
+
 	function getName()
 	{
 		return 'Craft2yml';
@@ -10,7 +16,7 @@ class Craft2ymlPlugin extends BasePlugin
 
 	function getVersion()
 	{
-		return '1.0';
+		return '1.0.1';
 	}
 
 	function getDeveloper()
@@ -27,5 +33,4 @@ class Craft2ymlPlugin extends BasePlugin
 	{
 		return 'https://raw.githubusercontent.com/fork/craft2yml/master/releases.json';
 	}
-
 }

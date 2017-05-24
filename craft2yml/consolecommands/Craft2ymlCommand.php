@@ -1,6 +1,8 @@
 <?php
 namespace Craft;
 
+use Symfony\Component\Yaml\Yaml;
+
 class Craft2ymlCommand extends BaseCommand
 {
 	/**
@@ -27,7 +29,9 @@ class Craft2ymlCommand extends BaseCommand
 		$ymlContent = array_merge($ymlContent, $content);
 
 		// save yaml file
-		yaml_emit_file($targetFile, $ymlContent);
+		// TODO: make inline limit a setting maybe
+		$yml = Yaml::dump($ymlContent, 4, 2);
+		file_put_contents($targetFile, $yml);
 	}
 
 
