@@ -33,6 +33,7 @@ class Craft2ymlService extends BaseApplicationComponent {
 		return Yaml::dump($ymlContent, $inlineLimit, 2);
 	}
 
+	// TODO: handle more field types (category, entry reference, table...)
 	/**
 	 * @param mixed $element
 	 * @return array

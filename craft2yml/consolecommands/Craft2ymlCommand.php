@@ -1,8 +1,6 @@
 <?php
 namespace Craft;
 
-use Symfony\Component\Yaml\Yaml;
-
 class Craft2ymlCommand extends BaseCommand
 {
 	/**
